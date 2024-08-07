@@ -8,7 +8,7 @@
 <body>
         <div class="main">
               <h1>Its Giving Tips</h1>
-              <h3>Enter your emaik ID</h3>
+              <h3>Enter your email and password to log in as a Tippee</h3>
               <form action="">
                     <label for="first">
                           Email:
@@ -16,8 +16,9 @@
                     <input type="text" 
                            id="first" 
                            name="first" 
-                           placeholder="Enter your Username" required>
-  
+                           placeholder="Enter your Email" required>
+                  </input> 
+
                     <label for="password">
                           Password:
                     </label>
@@ -25,14 +26,12 @@
                            id="password" 
                            name="password"
                            placeholder="Enter your Password" required>
-  
-                    <div class="wrap">
-                          <button type="submit"
-                                  onclick="solve()">
-                                Submit
-                          </button>
+                    </input> 
                     </div>
               </form>
     <button type="button" class="block"> Log in  </button>
+    <form>
+      <input type="button" value="Go back!" onclick="history.back()">
+     </form>
 </body>
 </html>
