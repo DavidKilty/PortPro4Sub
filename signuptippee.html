@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plese enter required details in the fields below to lsign up for your Tippee account</title>
+</head>
+<body>
+        <div class="main">
+              <h1>Its Giving Tips</h1>
+              <h3>Enter your email and password to sign up as a Tippee</h3>
+
+              <form action="/action_page.php" method="get">
+
+                <label for="fname">First name:</label>
+                <input type="text" id="fname" placeholder="First Name" name="fname"><br><br>
+
+                <label for="lname">Last name:</label>
+                <input type="text" id="lname" placeholder="Last Name" name="lname"><br><br>
+
+                <label for="age">Age:</label>
+                <input name="age" id="age" placeholder="Age" type="number"><br><br>
+
+                <label for="email">Email:</label>
+                <input type="text" id="email" placeholder="Enter Email" name="email" required><br><br>
+            
+                <label for="psw">Password:</label>
+                <input type="password" id="psw" placeholder="Enter Password" name="psw" required><br><br>
+            
+                <label for="psw-repeat">Repeat Password:</label>
+                <input type="password" id="psw-repeat" placeholder="Repeat Password" name="psw-repeat" required><br><br>
+            
+                <label>
+                  <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                </label><br><br>
+
+                <button type="submit" value="Submit">Submit</button><br><br>
+                <button type="reset" value="Reset">Reset</button><br><br>
+
+              </form>
+
+    <form>
+      <input type="button" value="Go back!" onclick="history.back()">
+     </form>
+</body>
+</html>

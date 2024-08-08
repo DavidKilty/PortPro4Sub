@@ -3,35 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plese enter your email & password in the fields below to log into your Tipper account</title>
+    <title>Please enter your email & password in the fields below to log into your Tipper account</title>
+    <script>
+        function validateForm(event) {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            const validEmail = "youremail@example.com";
+            const validPassword = "yourpassword";
+
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                event.preventDefault();  
+                return false;
+            }
+
+            if (password === "") {
+                alert("Please enter your password.");
+                event.preventDefault(); 
+                return false;
+            }
+
+            if (email === validEmail && password === validPassword) {
+                return true;
+            } else {
+                alert("Invalid email or password.");
+                event.preventDefault();
+                return false;
+            }
+        }
+    </script>
 </head>
 <body>
-        <div class="main">
-              <h1>Its Giving Tips</h1>
-              <h3>Enter your email and password to log in as a Tipper</h3>
-              <form action="">
-                    <label for="first">
-                          Email:
-                    </label>
-                    <input type="text" 
-                           id="first" 
-                           name="first" 
-                           placeholder="Enter your Email" required>
-                  </input> 
+    <div class="main">
+        <h1>Its Giving Tips</h1>
+        <h3>Enter your email and password to log in as a Tipper</h3>
+        
+        <form action="tipperhomepage.html" method="POST" onsubmit="return validateForm(event)">
+            <label for="email">
+                Email:
+            </label>
 
-                    <label for="password">
-                          Password:
-                    </label>
-                    <input type="password"
-                           id="password" 
-                           name="password"
-                           placeholder="Enter your Password" required>
-                    </input> 
-                    </div>
-              </form>
-    <button type="button" class="block"> Log in  </button>
+            <input type="text" 
+                   id="email" 
+                   name="email" 
+                    placeholder="Enter your Email" required> 
+
+            <label for="password">
+                Password:
+            </label>
+            <input type="password"
+                   id="password" 
+                   name="password"
+                   placeholder="Enter your Password" required>
+            
+            
+            <button type="submit" class="block">Log in</button>
+        </form>
+    </div>
+
     <form>
-      <input type="button" value="Go back!" onclick="history.back()">
-     </form>
+        <input type="button" value="Go back!" onclick="history.back()">
+    </form>
 </body>
 </html>
