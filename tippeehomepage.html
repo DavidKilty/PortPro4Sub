@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Homepage for your Tipper account</title>
+  
 </head>
 
 <body>
@@ -19,7 +20,11 @@
     <h3> Please see your QR Code and identification number below. <br></br>
     </h3>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <input id="text" type="text" value="1234567890" style="Width:20%" onblur='generateBarCode();' />
     
+    <img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" alt="" title="HELLO" width="50" height="50" />
 
     <h6> Please select your payment method here.</h6>
    
