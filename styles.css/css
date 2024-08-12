@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header a button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+header a button:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+
+
+footer p {
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+footer .social-links {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+footer .social-links li {
+    display: inline;
+}
+
+footer .social-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+footer .social-links a:hover {
+    color: #4CAF50;
+}
+
+@media (max-width: 768px) {
+
+
+    header a button {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+
+    footer {
+        padding: 15px 0;
+    }
+
+    footer .social-links a {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+
+
+    header a button {
+        font-size: 0.8em;
+        padding: 6px 10px;
+        }
+}  
