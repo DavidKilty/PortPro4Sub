@@ -33,11 +33,26 @@ footer {
     background-color: #333;
     color: white;
     padding: 20px 0;
-    text-align: center;
 }
 
+footer .container-fluid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: left;
+}
 
+footer .col-sm-4 {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+    box-sizing: border-box;
+}
 
+footer h6 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
 
 footer p {
     font-size: 0.9em;
@@ -68,7 +83,6 @@ footer .social-links a:hover {
 
 @media (max-width: 768px) {
 
-
     header a button {
         font-size: 0.9em;
         padding: 8px 15px;
@@ -76,6 +90,11 @@ footer .social-links a:hover {
 
     footer {
         padding: 15px 0;
+        text-align: center;
+    }
+
+    footer .col-sm-4 {
+        min-width: 100%;
     }
 
     footer .social-links a {
@@ -85,9 +104,12 @@ footer .social-links a:hover {
 
 @media (max-width: 480px) {
 
-
     header a button {
         font-size: 0.8em;
         padding: 6px 10px;
-        }
-}  
+    }
+
+    footer .social-links a {
+        font-size: 1.2em;
+    }
+}
