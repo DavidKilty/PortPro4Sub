@@ -1,115 +1,188 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
-    line-height: 1.6;
+    margin: 20px;
 }
 
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
+h1, h2, h3, h4, h5, h6 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
     text-align: center;
+    color: #8e44ad;
 }
 
-header a button {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    margin: 10px 5px;
+h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    color: #3498db;
+}
+
+h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #2980b9;
+}
+
+p {
+    margin: 15px 0;
+    font-size: 1.1rem;
+}
+
+img {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    display: block;
+    width: 80%;
+    max-width: 200px;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #8e44ad;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-header a button:hover {
-    background-color: #555;
+button:hover {
+    background-color: #5e3370;
+}
+
+header {
+    background-color: #ecf0f1;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+header h2, header h4 {
+    margin-bottom: 5px;
 }
 
 footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-}
-
-footer .container-fluid {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    text-align: left;
-}
-
-footer .col-sm-4 {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px;
-    box-sizing: border-box;
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
 }
 
 footer h6 {
-    font-size: 1.1em;
+    font-size: 1rem;
     margin-bottom: 10px;
 }
 
 footer p {
-    font-size: 0.9em;
-    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #3498db;
+    font-size: 1.2rem;
+    margin: 5px;
 }
 
 footer .social-links {
-    padding: 0;
-    list-style-type: none;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-}
-
-footer .social-links li {
-    display: inline;
+    margin: 20px 0;
 }
 
 footer .social-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5em;
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5rem;
 }
 
-footer .social-links a:hover {
-    color: #4CAF50;
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-@media (max-width: 768px) {
-
-    header a button {
-        font-size: 0.9em;
-        padding: 8px 15px;
-    }
-
-    footer {
-        padding: 15px 0;
-        text-align: center;
-    }
-
-    footer .col-sm-4 {
-        min-width: 100%;
-    }
-
-    footer .social-links a {
-        font-size: 1.2em;
-    }
+label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #2c3e50;
 }
 
-@media (max-width: 480px) {
+input[type="text"], 
+input[type="password"], 
+input[type="email"], 
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
 
-    header a button {
-        font-size: 0.8em;
-        padding: 6px 10px;
-    }
+input[type="button"], input[type="submit"], input[type="reset"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
 
-    footer .social-links a {
-        font-size: 1.2em;
-    }
+input[type="button"]:hover, 
+input[type="submit"]:hover, 
+input[type="reset"]:hover {
+    background-color: #2980b9;
+}
+
+.main {
+    text-align: center;
+}
+
+.bills button {
+    width: calc(100% / 7 - 10px);
+    margin: 5px;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.bills button:hover {
+    background-color: #2980b9;
 }
