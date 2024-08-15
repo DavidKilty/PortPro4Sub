@@ -13,19 +13,48 @@
 
 <body> 
     
- <button type="button">20 Cents</button>
+ <button type="button" onclick="processPayment(0.20)">20 Cents</button>
 
- <button type="button">50 cents</button>
+ <button type="button" onclick="processPayment(0.50)">50 cents</button>
 
- <button type="button">1 Euro</button>
+ <button type="button" onclick="processPayment(1.00)">1 Euro</button>
 
- <button type="button">2 Euro</button>
+ <button type="button" onclick="processPayment(2.00)">2 Euro</button>
 
- <button type="button">5 Euro</button>
+ <button type="button" onclick="processPayment(5.00)">5 Euro</button>
 
- <button type="button">10 Euro</button>
+ <button type="button" onclick="processPayment(10.00)">10 Euro</button>
 
- <button type="button">20 Euro</button>
+ <button type="button" onclick="processPayment(10.00)">20 Euro</button>
+
+ <script>
+    async function processPayment(amount) {
+
+        try {
+            const response = await fetch('/mock-payment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    amount: amount,
+                    performer: 'Alicia Key Stroke'
+                })
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                alert('Payment Successful! Thank you for your tip.');
+            } else {
+                alert('Payment Failed! Please try again.');
+            }
+        } catch (error) {
+            alert('An error occurred during payment processing. Please try again later.');
+            console.error('Payment error:', error);
+        }
+    }
+</script>
 
 </body>
 <foot>
