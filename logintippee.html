@@ -7,26 +7,33 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-        <div class="main">
+         <div class="main">
               <h1>Its Giving Tips</h1>
               <h3>Enter your email and password to log in as a Tippee</h3>
-              <form action="">
-                    <label for="first">
-                          Email:
-                    </label>
-                    <input type="text" 
-                           id="first" 
-                           name="first" 
-                           placeholder="Enter your Email" required>
-                    <label for="password">
-                          Password:
-                    </label>
-                    <input type="password" id="password" name="password" placeholder="Enter your Password" required>
-                    </div>
+             
+              <form action="tippeehomepage.html" method="POST" onsubmit="return validateForm(event)">
+                <label for="email">
+                    Email:
+                </label>
+    
+                <input type="text" 
+                       id="email" 
+                       name="email" 
+                        placeholder="Enter your Email" required> 
+    
+                <label for="password">
+                    Password:
+                </label>
+                <input type="password"
+                       id="password" 
+                       name="password"
+                       placeholder="Enter your Password" required>
+                
+                
+                <button type="submit" class="block">Log in</button>
+            </form>
+        </div>    
 
-                    <button type="button" class="block"> Log in  </button>        
-              </form>
-         </div>     
     <form>
       <input type="button" value="Go back!" onclick="history.back()">
      </form>
