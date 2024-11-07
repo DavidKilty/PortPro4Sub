@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipper Details</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <h2>Tipper Account Details</h2>
+
+    <p><strong>Username:</strong> {{ tipper.username }}</p>
+    <p><strong>Email:</strong> {{ tipper.email }}</p>
+    <p><strong>Bio:</strong> {{ tipper.bio }}</p>
+    <p><strong>Created at:</strong> {{ tipper.created_at }}</p>
+
+    <a href="{% url 'tipper_update' tipper.id %}">Edit</a> | 
+    <a href="{% url 'tipper_delete' tipper.id %}">Delete</a> | 
+    <a href="{% url 'tipper_list' %}">Back to List</a>
+
+</body>
+</html>
+

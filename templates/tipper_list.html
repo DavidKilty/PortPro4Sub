@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipper List</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <h2>Tipper Accounts</h2>
+    
+    <ul>
+        {% for tipper in tippers %}
+            <li>
+                <a href="{% url 'tipper_detail' tipper.id %}">{{ tipper.username }}</a>
+                - <a href="{% url 'tipper_update' tipper.id %}">Edit</a>
+                - <a href="{% url 'tipper_delete' tipper.id %}">Delete</a>
+            </li>
+        {% empty %}
+            <li>No tippers available.</li>
+        {% endfor %}
+    </ul>
+    
+    <a href="{% url 'tipper_create' %}">Create a New Tipper</a>
+
+</body>
+</html>

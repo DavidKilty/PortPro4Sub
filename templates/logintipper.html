@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please enter your email & password in the fields below to log into your Tipper account</title>
+
+    <!-- Load static template tag for Django static files -->
+    {% load static %}
+    
+    <!-- Link to the CSS file using the Django static tag -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script>
+        function validateForm(event) {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            const validEmail = "youremail@example.com";
+            const validPassword = "yourpassword";
+
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                event.preventDefault();  
+                return false;
+            }
+
+            if (password === "") {
+                alert("Please enter your password.");
+                event.preventDefault(); 
+                return false;
+            }
+
+            if (email === validEmail && password === validPassword) {
+                return true;
+            } else {
+                alert("Invalid email or password.");
+                event.preventDefault();
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Its Giving Tips</h1>
+        <h3>Enter your email and password to log in as a Tipper</h3>
+        
+        <form action="tipperhomepage.html" method="POST" onsubmit="return validateForm(event)">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="Enter your Email" required> 
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+            
+            <button type="submit" class="block">Log in</button>
+        </form>
+    </div>
+
+    <form>
+        <input type="button" value="Go back!" onclick="history.back()">
+    </form>
+
+    <a href="logintipper.html"><button type="button" class="block">Log in as a Tipper</button></a>
+
+    <footer class="container-fluid">
+        <div id="footer-details" class="row">
+            <div class="col-sm-4">
+                <h6 class="uppercase general-sub" style="color: rgb(81, 229, 224); display: block;">About</h6>
+                <p>This smart device application allows you to send a tip directly to your favourite performing queen, live and in real time!</p>
+                <h6 class="uppercase general-sub" style="color: rgb(81, 229, 224); display: block;">Imprint</h6>
+                <p>IGT (dba) It's Giving Tips</p>
+                <h6 class="uppercase general-sub" style="color: rgb(81, 229, 224); display: block;">Support</h6>
+                <p>If you encounter any issues with logging in, navigating the site, or have any questions, we're here to help!</p>
+            </div>
+            <div class="col-sm-4">
+                <h6 class="uppercase general-sub" style="color: rgb(81, 229, 224); display: block;">Support</h6>
+                <p>It's Giving Tips (ITG) is provided as-is, without any express or implied warranties.</p>
+            </div>
+            <div class="col-sm-4">
+                <h5 class="uppercase general-sub">Social</h5>
+                <ul class="list-inline social-links">
+                    <li class="list-inline-item">
+                        <a target="_blank" href="#">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            <span class="sr-only">Twitter</span>
+                        </a> 
+                    </li>
+                    <li class="list-inline-item">
+                        <a target="_blank" href="#">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                            <span class="sr-only">Instagram</span>
+                        </a> 
+                    </li>
+                    <li class="list-inline-item">
+                        <a target="_blank" href="#">
+                            <i class="fa fa-youtube" aria-hidden="true"></i>
+                            <span class="sr-only">YouTube</span>
+                        </a> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

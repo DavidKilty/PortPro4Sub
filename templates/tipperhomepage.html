@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage for your Tipper account</title>
+
+  <!-- Load static template tag for Django static files -->
+  {% load static %}
+  
+  <!-- Link to the CSS file using the Django static tag -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="main">
+   <h1>Its Giving Tips</h1>
+   <h3>Please select your payment method below by tapping on the icon.</h3>
+
+  <form>
+     <input type="button" value="Log out" onclick="history.back()">
+  </form>
+
+  <h3> Press the camera symbol below to scan the QR Code <br><br>
+      Or type in the identification number and press enter</h3>
+
+  <h6> Scan the QR code here and be taken to the tip page for your performer! </h6>
+
+  <a>
+    <input type="file" accept="image/*" capture="camera">   
+  </a>
+
+  <div>
+    <input type="file" accept="image/*" capture="camera" style="display:block">
+  </div>
+
+  <h6> Enter the identification number here and be taken to the tip page for your performer! </h6>
+
+  <label for="identification">Identification number (9 digits):</label>
+  <input type="number" id="identification" name="number" min="100000000" max="999999999" />
+
+  <a href="tipperjar.html"> <button type="button"> Go to tip jar to give tips!</button> </a>
+
+  <h6> Please select your payment method here.</h6>
+   
+  <div class="col-sm-4"> 
+      <h5 class="uppercase general-sub"> Please select your payment method here</h5>
+      <ul class="list-inline social-links">
+          
+        <li class="list-inline-item">
+            <a target="_blank" href="#">
+                <i class="fa-brands fa-google-pay" aria-hidden="true"></i>
+                <span class="sr-only">Google Pay</span>
+             </a>
+         
+             <a target="_blank" href="#">
+               <i class="fa-brands fa-paypal" aria-hidden="true"></i>
+               <span class="sr-only">PayPal</span>
+            </a>
+        </li>
+        
+      </ul>
+  </div>
+ 
+  <a href="{% url 'tipper_delete' tipper.id %}">Delete Account</a>
+
+
+</body

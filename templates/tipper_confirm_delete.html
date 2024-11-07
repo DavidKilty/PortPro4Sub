@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Tipper Account</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <h2>Are you sure you want to delete your account?</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete My Account</button>
+    </form>
+
+    <a href="{% url 'tipper_detail' tipper.id %}">Cancel</a>
+
+</body>
+</html>

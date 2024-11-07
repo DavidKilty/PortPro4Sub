@@ -4,10 +4,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-hbc&b3lbt54-4+yn6%dp5j$u)4+_yoxu-g9nzjx0dx=js89zq4'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-davidkilty-portpro4sub-ap96dgcq6mc.ws.codeinstitute-ide.net'
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-davidkilty-portpro4sub-ap96dgcq6mc.ws.codeinstitute-ide.net'
 ]
 
 INSTALLED_APPS = [
@@ -17,7 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     'myproject.mainapp',
+    'myproject.mainapp',
 ]
 
 MIDDLEWARE = [
@@ -35,7 +39,7 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,9 +87,11 @@ USE_TZ = True
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     BASE_DIR / 'static',  
 ]
 
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'mainapp.User'
