@@ -6,7 +6,6 @@ class User(AbstractUser):
         ('tipper', 'Tipper'),
         ('tippee', 'Tippee'),
     )
-    
     user_type = models.CharField(max_length=7, choices=USER_TYPE_CHOICES)
 
     def __str__(self):

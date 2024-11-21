@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic.edit import DeleteView
 from .forms import TipperSignUpForm, TippeeSignUpForm
-from .models import User  
+from .models import User
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -21,7 +21,9 @@ def signuptipper(request):
     if request.method == 'POST':
         form = TipperSignUpForm(request.POST)
         if form.is_valid():
-            form.save()
+            print("Form is valid")
+            user = form.save()
+            print(f"User created: {user.username}, {user.email}")
             return redirect('home')
         else:
             print("Form errors:", form.errors)
@@ -32,12 +34,16 @@ def signuptippee(request):
     if request.method == 'POST':
         form = TippeeSignUpForm(request.POST)
         if form.is_valid():
-            form.save()
+            print("Form is valid")
+            user = form.save()
+            print(f"User created: {user.username}, {user.email}")
             return redirect('home')
+        else:
+            print("Form errors:", form.errors)
     return render(request, 'signuptippee.html', {'form': form})
 
 class TipperDeleteView(DeleteView):
-    model = User  # Changed from Tipper to User
+    model = User
     template_name = 'tipper_confirm_delete.html'
     success_url = reverse_lazy('home')
 
