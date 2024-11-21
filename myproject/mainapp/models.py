@@ -6,7 +6,11 @@ class User(AbstractUser):
         ('tipper', 'Tipper'),
         ('tippee', 'Tippee'),
     )
+    email = models.EmailField(unique=True)
     user_type = models.CharField(max_length=7, choices=USER_TYPE_CHOICES)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
 
     def __str__(self):
         return f"{self.username} ({self.get_user_type_display()})"

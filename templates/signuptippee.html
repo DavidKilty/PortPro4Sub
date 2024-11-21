@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Please enter required details to sign up for your Tippee account</title>
-    
+    <title>Sign Up for Tippee Account</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -13,73 +12,41 @@
 <body>
     <div class="main">
         <h1>It's Giving Tips</h1>
-        <h3>Enter your email and password to sign up as a Tippee</h3>
+        <h3>Enter your details to sign up as a Tippee</h3>
 
         <form method="post" action="{% url 'signuptippee' %}">
             {% csrf_token %}
-            <label for="fname">First name:</label>
-            <input type="text" id="fname" placeholder="First Name" name="fname"><br><br>
+            {{ form.as_p }}
 
-            <label for="lname">Last name:</label>
-            <input type="text" id="lname" placeholder="Last Name" name="lname"><br><br>
+            {% if form.errors %}
+                <div class="error">
+                    {{ form.errors }}
+                </div>
+            {% endif %}
 
-            <label for="age">Age:</label>
-            <input name="age" id="age" placeholder="Age" type="number"><br><br>
-
-            <label for="email">Email:</label>
-            <input type="text" id="email" placeholder="Enter Email" name="email" required><br><br>
-        
-            <label for="psw">Password:</label>
-            <input type="password" id="psw" placeholder="Enter Password" name="psw" required><br><br>
-        
-            <label for="psw-repeat">Repeat Password:</label>
-            <input type="password" id="psw-repeat" placeholder="Repeat Password" name="psw-repeat" required><br><br>
-        
-            <label>
-              <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-            </label><br><br>
-
-            <button type="submit" value="Submit">Submit</button><br><br>
-            <button type="reset" value="Reset">Reset</button><br><br>
+            <button type="submit" value="Submit">Sign Up</button>
+            <button type="reset" value="Reset">Reset</button>
         </form>
 
         <button onclick="history.back()">Go back!</button>
     </div>
+
     <footer class="container-fluid">
         <div id="footer-details" class="row">
             <div class="col-sm-4">
-                <h6 class="uppercase general-sub" style="color: rgb(81, 229, 224); display: block;">About</h6>
-                <p>This smart device application allows you to send a tip directly to your favourite performing queen, live and in real time!</p>
-                <h6 class="uppercase general-sub" style="color: rgb(81, 229, 224); display: block;">Imprint</h6>
-                <p>IGT (dba) It's Giving Tips</p>
-                <h6 class="uppercase general-sub" style="color: rgb(81, 229, 224); display: block;">Support</h6>
-                <p>If you encounter any issues with logging in, navigating the site, or have any questions, we're here to help!</p>
+                <h6>About</h6>
+                <p>This application allows you to send a tip directly to your favourite performer, live and in real time!</p>
             </div>
             <div class="col-sm-4">
-                <h6 class="uppercase general-sub" style="color: rgb(81, 229, 224); display: block;">Support</h6>
-                <p>It's Giving Tips (ITG) is provided as-is, without any express or implied warranties.</p>
+                <h6>Support</h6>
+                <p>If you encounter any issues with logging in or navigating the site, we're here to help!</p>
             </div>
             <div class="col-sm-4">
-                <h5 class="uppercase general-sub">Social</h5>
-                <ul class="list-inline social-links">
-                    <li class="list-inline-item">
-                        <a target="_blank" href="#">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                            <span class="sr-only">Twitter</span>
-                        </a> 
-                    </li>
-                    <li class="list-inline-item">
-                        <a target="_blank" href="#">
-                            <i class="fa fa-instagram" aria-hidden="true"></i>
-                            <span class="sr-only">Instagram</span>
-                        </a> 
-                    </li>
-                    <li class="list-inline-item">
-                        <a target="_blank" href="#">
-                            <i class="fa fa-youtube" aria-hidden="true"></i>
-                            <span class="sr-only">YouTube</span>
-                        </a> 
-                    </li>
+                <h6>Social</h6>
+                <ul>
+                    <li><a target="_blank" href="#">Twitter</a></li>
+                    <li><a target="_blank" href="#">Instagram</a></li>
+                    <li><a target="_blank" href="#">YouTube</a></li>
                 </ul>
             </div>
         </div>

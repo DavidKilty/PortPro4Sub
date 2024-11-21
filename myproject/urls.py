@@ -9,5 +9,5 @@ urlpatterns = [
     path('logintippee/', views.logintippee, name='logintippee'),
     path('signuptipper/', views.signuptipper, name='signuptipper'),
     path('signuptippee/', views.signuptippee, name='signuptippee'),
-    path('tipper/<int:pk>/delete/', views.TipperDeleteView.as_view(), name='tipper_delete'),  
+    path('tipper/<int:pk>/delete/', views.TipperDeleteView.as_view(), name='tipper_delete'),
 ]
