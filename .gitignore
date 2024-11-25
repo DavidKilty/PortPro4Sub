@@ -1,0 +1,41 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Django files
+db.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+staticfiles/
+media/
+
+# Virtual environment
+venv/
+env/
+ENV/
+*.env
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Gitpod
+.gitpod/
+
+# Node.js (if using npm or yarn for frontend dependencies)
+node_modules/
+
+# Coverage and test files
+htmlcov/
+.coverage
+.tox/
+

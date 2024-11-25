@@ -17,6 +17,7 @@
         <form method="post" action="{% url 'signuptipper' %}">
             {% csrf_token %}
             {{ form.as_p }}
+            <p>CSRF Token: {{ csrf_token }}</p>
 
             {% if form.errors %}
                 <div class="error">
@@ -53,3 +54,4 @@
     </footer>
 </body>
 </html>
+ 
