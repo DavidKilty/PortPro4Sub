@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
+{% if user.is_authenticated %}
+<p>Welcome back, {{ user.username }}!</p>
+{% else %}
+<p>Please <a href="{% url 'logintipper' %}">log in</a> to access your account.</p>
+{% endif %}
+
 <body>
     <header>
         <h1>It's Giving Tips #ITG</h1>
@@ -23,7 +29,6 @@
         <a href="{% url 'signuptippee' %}"><button type="button" class="block">Sign Up as a Tippee </button></a> 
     </header>
     
-
     
     <section>
         <font size="+2">

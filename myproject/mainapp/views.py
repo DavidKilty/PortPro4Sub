@@ -4,6 +4,7 @@ from django.views.generic.edit import DeleteView
 from .forms import TipperSignUpForm, TippeeSignUpForm
 from .models import User
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
@@ -17,6 +18,10 @@ def logintipper(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            if user.user_type == 'tipper':
+                return redirect('tipper_dashboard')  
+            elif user.user_type == 'tippee':
+                return redirect('tippee_dashboard')
             return redirect('home')
         else:
             print("Login failed")
@@ -59,3 +64,7 @@ class TipperDeleteView(DeleteView):
 
     def get_queryset(self):
         return User.objects.filter(user_type='tipper')
+
+@login_required
+def home(request):
+    return render(request, 'index.html', {'user': request.user})
