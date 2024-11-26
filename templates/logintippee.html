@@ -9,12 +9,15 @@
     <h1>Tippee Login Page</h1>
     <form method="post" action="#">
         {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <label for="email">Email:</label>
+        <input type="email" name="username" id="email" required>
         
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        
+        <input type="password" name="password" id="password" required>
+
         <button type="submit">Login</button>
     </form>
 </body>
