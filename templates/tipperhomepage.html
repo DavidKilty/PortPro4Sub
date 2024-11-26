@@ -7,10 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Homepage for your Tipper account</title>
 
-  <!-- Load static template tag for Django static files -->
   {% load static %}
   
-  <!-- Link to the CSS file using the Django static tag -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -20,9 +18,9 @@
    <h1>Its Giving Tips</h1>
    <h3>Please select your payment method below by tapping on the icon.</h3>
 
-  <form>
-     <input type="button" value="Log out" onclick="history.back()">
-  </form>
+   <a href="{% url 'logout' %}">
+    <button type="button" class="block">Log Out</button>
+</a>
 
   <h3> Press the camera symbol below to scan the QR Code <br><br>
       Or type in the identification number and press enter</h3>
