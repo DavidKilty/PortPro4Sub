@@ -20,12 +20,14 @@
 
     <h4>Actions</h4>
    
-    <a href="{% url 'tippee_jar' request.user.id %}">
+    <a href="{% url 'tipper_jar' request.user.id %}">
       <button type="button">View Received Tips</button>
    </a>
 
- 
-   
+   <a href="{% url 'delete_account' %}">
+    <button type="button" class="delete-button">Delete Account</button>
+   </a>
+
     <a href="{% url 'logout' %}">
         <button type="button" class="block">Log Out</button>
     </a>

@@ -5,7 +5,8 @@ from myproject.mainapp import views
 urlpatterns = [
     path('tipper_list/', views.tipper_list, name='tipper_list'),
     path('tipper_jar/<int:user_id>/', views.tipper_jar, name='tipper_jar'),
-    path('tippee_jar/<int:user_id>/', views.tippee_jar, name='tippee_jar'),
+    path('delete_account/', views.delete_account, name='delete_account'),
+    path('sent_tips/', views.sent_tips, name='sent_tips'),
     path('leave_tip/<int:user_id>/', views.leave_tip, name='leave_tip'),
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),

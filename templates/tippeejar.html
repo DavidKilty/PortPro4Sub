@@ -1,45 +1,48 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tip Jar</title>
-
-    {% load static %}
-    
+    <title>Sent Tips</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
 
+</head>
 <body>
-    <h3>Your Received Tips</h3>
+    <h1>Your Sent Tips</h1>
     
-    <ul>
-        {% for tip in tips %}
-            <li>{{ tip.sender.username }} tipped {{ tip.amount }}€</li>
-        {% endfor %}
-    </ul>
+    {% if tips %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Tippee</th>
+                    <th>Amount</th>
+                    <th>Timestamp</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tip in tips %}
+                <tr>
+                    <td>{{ tip.receiver.username }}</td>
+                    <td>{{ tip.amount }}€</td>
+                    <td>{{ tip.timestamp }}</td>
+                    <td>
+                        <form method="post" action="{% url 'delete_tip' tip.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Remove Tip</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>You haven't sent any tips yet!</p>
+    {% endif %}
     
-    <table>
-        <thead>
-            <tr>
-                <th>Sender</th>
-                <th>Amount</th>
-                <th>Timestamp</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for tip in tips %}
-            <tr>
-                <td>{{ tip.sender.username }}</td>
-                <td>{{ tip.amount }}€</td>
-                <td>{{ tip.timestamp }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>    
+    <a href="{% url 'tipper_homepage' %}">Back to Homepage</a>
 </body>
 
 <foot>

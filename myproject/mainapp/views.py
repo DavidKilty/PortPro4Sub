@@ -96,10 +96,12 @@ def tipper_jar(request, user_id):
 
 
 @login_required
-def tippee_jar(request, user_id):
-    tippee = get_object_or_404(User, id=user_id, user_type="tippee")
-    tips = Tip.objects.filter(receiver=tippee)
-    return render(request, 'tippeejar.html', {'receiver': tippee, 'tips': tips})
+def sent_tips(request):
+    if request.user.user_type != 'tipper':
+        return redirect('home')
+
+    tips = Tip.objects.filter(sender=request.user)
+    return render(request, 'tippeejar.html', {'tips': tips})
 
 
 @login_required
@@ -117,6 +119,14 @@ def delete_tip(request, tip_id):
         tip.delete()
         return redirect('tipper_jar', user_id=request.user.id) 
     return render(request, 'tipper_update.html', {'tip': tip})
+
+@login_required
+def delete_account(request):
+    if request.method == 'POST':
+       
+        request.user.delete()
+        return redirect('home')  
+    return render(request, 'tipper_confirm_delete.html')
 
 def logout_view(request):
     logout(request)

@@ -4,20 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Tipper Account</title>
+    <title>Delete Account</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body> 
-
-    <h2>Are you sure you want to delete your account?</h2>
-
-    <form method="post">
+<body>
+    <h1>Confirm Account Deletion</h1>
+    <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+    <form method="post" action="{% url 'delete_account' %}">
         {% csrf_token %}
         <button type="submit">Yes, Delete My Account</button>
     </form>
-
-    <a href="{% url 'tipper_detail' tipper.id %}">Cancel</a>
-
+    <a href="{% url 'tipper_homepage' if user.user_type == 'tipper' else 'tippee_homepage' %}">
+        <button type="button">Cancel</button>
+    </a>
 </body>
 </html>
- 
