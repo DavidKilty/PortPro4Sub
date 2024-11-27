@@ -1,4 +1,6 @@
 from pathlib import Path
+import dj_database_url
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -14,7 +16,7 @@ ALLOWED_HOSTS = [
  
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-davidkilty-portpro4sub-ap96dgcq6mc.ws.codeinstitute-ide.net', 
-     'https://itsgivingtips-abddf5f67e8a.herokuapp.com',
+    'https://itsgivingtips-abddf5f67e8a.herokuapp.com',
 ]
 
 INSTALLED_APPS = [
@@ -38,6 +40,9 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware', 
 ]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 ROOT_URLCONF = 'myproject.urls'
 
 TEMPLATES = [
@@ -59,11 +64,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default='postgresql://uzgxsspspo2:bkFpIgNlH0Gb@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/igloo_hurt_nacho_787472')
 }
+
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
