@@ -4,9 +4,10 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-hbc&b3lbt54-4+yn6%dp5j$u)4+_yoxu-g9nzjx0dx=js89zq4'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret-key-for-dev')
 
-DEBUG = False
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+
 
 ALLOWED_HOSTS = [
     '8000-davidkilty-portpro4sub-ap96dgcq6mc.ws.codeinstitute-ide.net',
