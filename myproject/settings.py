@@ -1,6 +1,6 @@
 from pathlib import Path
 import dj_database_url
-
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -99,6 +99,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']  
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+if os.environ.get ('DISABLE_COLLECTSTATIC', None):
+    STATICFILES_STORAGE = None
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
