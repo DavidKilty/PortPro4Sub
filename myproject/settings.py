@@ -7,9 +7,11 @@ SECRET_KEY = 'django-insecure-hbc&b3lbt54-4+yn6%dp5j$u)4+_yoxu-g9nzjx0dx=js89zq4
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-davidkilty-portpro4sub-ap96dgcq6mc.ws.codeinstitute-ide.net'
+    '8000-davidkilty-portpro4sub-ap96dgcq6mc.ws.codeinstitute-ide.net',
+    'itsgivingtips-abddf5f67e8a.herokuapp.com', 
+    'localhost',
 ]
-
+ 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-davidkilty-portpro4sub-ap96dgcq6mc.ws.codeinstitute-ide.net'
 ]
@@ -32,6 +34,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
 ]
 
 ROOT_URLCONF = 'myproject.urls'
