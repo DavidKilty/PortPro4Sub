@@ -4,26 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tipper List</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head> 
-<body> 
+    <title>Search Tippees</title>
+</head>
+<body>
+    <h1>Search for Tippees</h1>
+    <form method="get" action="{% url 'tipper_list' %}">
+        <input type="text" name="q" placeholder="Search by username">
+        <button type="submit">Search</button>
+    </form>
 
-    <h2>Tipper Accounts</h2>
-    
     <ul>
-        {% for tipper in tippers %}
+        {% for user in users %}
             <li>
-                <a href="{% url 'tipper_detail' tipper.id %}">{{ tipper.username }}</a>
-                - <a href="{% url 'tipper_update' tipper.id %}">Edit</a>
-                - <a href="{% url 'tipper_delete' tipper.id %}">Delete</a>
+                <a href="{% url 'tipper_jar' user.id %}">{{ user.username }}</a>
             </li>
         {% empty %}
-            <li>No tippers available.</li>
+            <li>No users found</li>
         {% endfor %}
     </ul>
-    
-    <a href="{% url 'tipper_create' %}">Create a New Tipper</a>
 
+    <a href="{% url 'tipper_homepage' %}">Back to Homepage</a>
 </body>
 </html>

@@ -7,28 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tip Jar</title>
 
-    <!-- Load static template tag for Django static files -->
     {% load static %}
     
-    <!-- Link to the CSS file using the Django static tag -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <h3>Welcome to your tipping jar!</h3>
-    <h3>Alicia Key Stroke</h3>
-
-    <br><br> 
-
-    <div class="bills">
-        <fieldset>
-          <legend>Total Amount</legend>
-          <table></table>
-        </fieldset>
-    </div>
-
-    <br><br><br><br><br><br>
+    <h3>Your Received Tips</h3>
+    
+    <ul>
+        {% for tip in tips %}
+            <li>{{ tip.sender.username }} tipped {{ tip.amount }}€</li>
+        {% endfor %}
+    </ul>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Sender</th>
+                <th>Amount</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tip in tips %}
+            <tr>
+                <td>{{ tip.sender.username }}</td>
+                <td>{{ tip.amount }}€</td>
+                <td>{{ tip.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>    
 </body>
 
 <foot>

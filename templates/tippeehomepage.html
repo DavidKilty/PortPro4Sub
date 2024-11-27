@@ -19,12 +19,12 @@
     <h3>Your username is how you are identified:</h3>
 
     <h4>Actions</h4>
-    <a href="tippeejar.html">
-      <button type="button">Go to Tip Jar to See Your Tips!</button>
-    </a>
-    <a href="{% url 'tippee_delete' user.id %}">
-      <button type="button" class="delete-button">Delete Account</button>
-    </a>
+   
+    <a href="{% url 'tippee_jar' request.user.id %}">
+      <button type="button">View Received Tips</button>
+   </a>
+
+ 
    
     <a href="{% url 'logout' %}">
         <button type="button" class="block">Log Out</button>

@@ -1,24 +1,19 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Tipper Account</title>
+    <title>Remove Tip</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-
-    <h2>Update Tipper Account</h2>
-
+    <h2>Remove Tip</h2>
+    <p>Are you sure you want to remove the tip of {{ tip.amount }}€ sent to {{ tip.receiver.username }}?</p>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Update</button>
+        <button type="submit">Yes, Remove Tip</button>
     </form>
-
-    <a href="{% url 'tipper_detail' tipper.id %}">Cancel</a>
-
+    <a href="{% url 'tipper_jar' user_id=request.user.id %}">Cancel</a>
 </body>
 </html>
- 

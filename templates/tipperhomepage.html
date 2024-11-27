@@ -34,15 +34,18 @@
     <label for="identification">Username:</label>
     <input type="text" id="identification" name="identification" />
 
-    <a href="{% url 'tipper_jar' %}">
+   
+    <a href="{% url 'tipper_jar' request.user.id %}">
       <button type="button">View Sent Tips</button>
-    </a>
+     </a>
+  
+
     <a href="{% url 'tipper_list' %}">
       <button type="button">Search Tippees</button>
     </a>
-    <a href="{% url 'tipper_delete' request.user.id %}">
-      <button type="button">Delete Account</button>
-    </a>
+
+
+
   </div>
 </body>
 

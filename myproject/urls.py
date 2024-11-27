@@ -3,6 +3,10 @@ from django.urls import path, include
 from myproject.mainapp import views
 
 urlpatterns = [
+    path('tipper_list/', views.tipper_list, name='tipper_list'),
+    path('tipper_jar/<int:user_id>/', views.tipper_jar, name='tipper_jar'),
+    path('tippee_jar/<int:user_id>/', views.tippee_jar, name='tippee_jar'),
+    path('leave_tip/<int:user_id>/', views.leave_tip, name='leave_tip'),
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('logintipper/', views.logintipper, name='logintipper'),
@@ -11,13 +15,8 @@ urlpatterns = [
     path('signuptipper/', views.signuptipper, name='signuptipper'),
     path('signuptippee/', views.signuptippee, name='signuptippee'),
     path('tipper_homepage/', views.tipper_homepage, name='tipper_homepage'),
-    path('tippee_homepage/', views.tipper_homepage, name='tippee_homepage'),
-    path('tipper/<int:pk>/delete/', views.TipperDeleteView.as_view(), name='tipper_delete'),
-    path('logout/', views.logout_view, name='logout'),
-     path('tippeejar/', views.tippee_jar, name='tippee_jar'),
-    path('tipperjar/', views.tipper_jar, name='tipper_jar'),
-    path('tipper_list/', views.tipper_list, name='tipper_list'),
-    path('tipper_update/<int:pk>/', views.tipper_update, name='tipper_update'),
-    path('delete_account/', views.delete_account, name='delete_account'),   
+    path('tippee_homepage/', views.tippee_homepage, name='tippee_homepage'),
+    path('delete_tip/<int:tip_id>/', views.delete_tip, name='delete_tip'),
 ]
+
  
